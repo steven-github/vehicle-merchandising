@@ -38,10 +38,11 @@ export default function Home() {
       setVehiclesCopy(vehicles);
       console.log("vehicles...", vehicles);
       if (vehicles[0]) {
+        let body_style_temp: any[] = [];
         vehicles.forEach((vehicle: Vehicle) => {
           Object.entries(vehicle).forEach(([key, value]) => {
             if (key == "body_style") {
-              body_style.push(value);
+              body_style_temp.push(value);
             }
             if (key == "categories") {
               value.forEach((element) => {
@@ -68,8 +69,8 @@ export default function Home() {
             }
           });
         });
-        let body_style_temp = body_style.filter(
-          (item, index) => body_style.indexOf(item) === index
+        body_style_temp = body_style_temp.filter(
+          (item, index) => body_style_temp.indexOf(item) === index
         );
         let categories_temp = categories.filter(
           (item, index) => categories.indexOf(item) === index
