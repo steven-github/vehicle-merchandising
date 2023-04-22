@@ -38,69 +38,69 @@ export default function Home() {
       setVehiclesCopy(vehicles);
       console.log("vehicles...", vehicles);
       if (vehicles[0]) {
-        let body_style_temp: any[] = [];
+        let body_style_temp: string[] = [];
         vehicles.forEach((vehicle: Vehicle) => {
           Object.entries(vehicle).forEach(([key, value]) => {
             if (key == "body_style") {
               body_style_temp.push(value);
             }
-            if (key == "categories") {
-              value.forEach((element) => {
-                categories.push(element);
-              });
-            }
-            if (key == "make") {
-              make.push(value);
-            }
-            if (key == "mileage") {
-              mileage.push(value);
-            }
-            if (key == "model") {
-              model.push(value);
-            }
-            if (key == "model_year") {
-              model_year.push(value);
-            }
-            if (key == "new_used_flag") {
-              new_used_flag.push(value);
-            }
-            if (key == "trim") {
-              trim.push(value);
-            }
+            // if (key == "categories") {
+            //   value.forEach((element) => {
+            //     categories.push(element);
+            //   });
+            // }
+            // if (key == "make") {
+            //   make.push(value);
+            // }
+            // if (key == "mileage") {
+            //   mileage.push(value);
+            // }
+            // if (key == "model") {
+            //   model.push(value);
+            // }
+            // if (key == "model_year") {
+            //   model_year.push(value);
+            // }
+            // if (key == "new_used_flag") {
+            //   new_used_flag.push(value);
+            // }
+            // if (key == "trim") {
+            //   trim.push(value);
+            // }
           });
         });
         body_style_temp = body_style_temp.filter(
           (item, index) => body_style_temp.indexOf(item) === index
         );
-        let categories_temp = categories.filter(
-          (item, index) => categories.indexOf(item) === index
-        );
-        let make_temp = make.filter(
-          (item, index) => make.indexOf(item) === index
-        );
-        let mileage_temp = mileage.filter(
-          (item, index) => mileage.indexOf(item) === index
-        );
-        let model_temp = model.filter(
-          (item, index) => model.indexOf(item) === index
-        );
-        let model_year_temp = model_year.filter(
-          (item, index) => model_year.indexOf(item) === index
-        );
-        let new_used_flag_temp = new_used_flag.filter(
-          (item, index) => new_used_flag.indexOf(item) === index
-        );
-        let trim_temp = trim.filter(
-          (item, index) => trim.indexOf(item) === index
-        );
+        // let categories_temp = categories.filter(
+        //   (item, index) => categories.indexOf(item) === index
+        // );
+        // let make_temp = make.filter(
+        //   (item, index) => make.indexOf(item) === index
+        // );
+        // let mileage_temp = mileage.filter(
+        //   (item, index) => mileage.indexOf(item) === index
+        // );
+        // let model_temp = model.filter(
+        //   (item, index) => model.indexOf(item) === index
+        // );
+        // let model_year_temp = model_year.filter(
+        //   (item, index) => model_year.indexOf(item) === index
+        // );
+        // let new_used_flag_temp = new_used_flag.filter(
+        //   (item, index) => new_used_flag.indexOf(item) === index
+        // );
+        // let trim_temp = trim.filter(
+        //   (item, index) => trim.indexOf(item) === index
+        // );
         setBodyStyle(body_style_temp);
-        setCategories(categories_temp);
-        setMake(make_temp);
-        setMileage(mileage_temp);
-        setModel(model_temp);
-        setModelYear(model_year_temp);
-        setNewUsedFlag(new_used_flag_temp);
-        setTrim(trim_temp);
+        // setCategories(categories_temp);
+        // setMake(make_temp);
+        // setMileage(mileage_temp);
+        // setModel(model_temp);
+        // setModelYear(model_year_temp);
+        // setNewUsedFlag(new_used_flag_temp);
+        // setTrim(trim_temp);
       }
       setTimeout(() => {
         setIsLoading(false);
