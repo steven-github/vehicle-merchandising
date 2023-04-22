@@ -146,116 +146,122 @@ export default function Home() {
           <BeatLoader color="#36d7b7" />
         </div>
       ) : (
-        <div className="bg-gray-100">
-          <div className="flex min-h-screen flex-row text-gray-800 p-4 max-w-[1200px] mx-auto">
-            <aside className="sidebar w-96 -translate-x-full transform bg-white p-4 transition-transform duration-150 ease-in md:translate-x-0 md:shadow-md rounded-lg">
-              <div className="my-4 w-full border-b-4 border-indigo-100 text-center">
-                <span className="font-mono text-xl font-bold tracking-widest">
-                  <span className="text-indigo-600">FILTERS</span>
-                </span>
-              </div>
-              <div className="my-4">
-                <h3 className="mb-4 font-semibold text-gray-900">Body Style</h3>
-                <div className="h-48 px-3 pb-3 text-sm text-gray-700">
-                  {body_style.map((item, index) => (
-                    <div
-                      key={item}
-                      className="flex items-center p-2 rounded hover:bg-gray-100"
-                    >
-                      <input
-                        id={`body_style_${index}`}
-                        name="body_type"
-                        type="radio"
-                        value={item}
-                        onChange={(e) => handleChange(e, "body_style", index)}
-                        className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded"
-                      />
-                      <label
-                        htmlFor={`body_style_${index}`}
-                        className="w-full ml-2 text-sm font-medium text-gray-900 rounded"
-                      >
-                        {item}
-                      </label>
-                    </div>
-                  ))}
-                  <button
-                    className="mt-8 relative inline-block text-xs font-medium text-[#1A2238] group active:text-orange-500 focus:outline-none focus:ring"
-                    onClick={(e) => handleClearRadioOptions()}
-                  >
-                    <span className="absolute inset-0 transition-transform translate-x-0.5 translate-y-0.5 bg-[#FF6A3D] group-hover:translate-y-0 group-hover:translate-x-0"></span>
-
-                    <span className="relative block px-8 py-3 bg-[#FFFFFF] border border-current">
-                      Clear
-                    </span>
-                  </button>
+        <>
+          <div className="bg-gray-100">
+            <div className="flex min-h-screen flex-row text-gray-800 p-4 max-w-[1200px] mx-auto">
+              <aside className="sidebar w-96 -translate-x-full transform bg-white p-4 transition-transform duration-150 ease-in md:translate-x-0 md:shadow-md rounded-lg">
+                <div className="my-4 w-full border-b-4 border-indigo-100 text-center">
+                  <span className="font-mono text-xl font-bold tracking-widest">
+                    <span className="text-indigo-600">FILTERS</span>
+                  </span>
                 </div>
-                <hr />
-              </div>
-            </aside>
-            <main className="main -ml-48 flex flex-grow flex-col pl-4 transition-all duration-150 ease-in md:ml-0">
-              <div className="flex h-full items-start justify-center bg-white text-center text-5xl font-bold shadow-md rounded-lg">
-                <ul className="flex flex-col gap-4 p-4 w-full">
-                  {vehiclesCopy.map((vehicle: Vehicle) => (
-                    <li
-                      key={vehicle.id}
-                      className="bg-white rounded-lg p-4 shadow-md border"
-                    >
-                      <Link
-                        href={`/vehicle/${encodeURIComponent(vehicle.id)}`}
-                        legacyBehavior
+                <div className="my-4">
+                  <h3 className="mb-4 font-semibold text-gray-900">
+                    Body Style
+                  </h3>
+                  <div className="h-48 px-3 pb-3 text-sm text-gray-700">
+                    {body_style.map((item, index) => (
+                      <div
+                        key={item}
+                        className="flex items-center p-2 rounded hover:bg-gray-100"
                       >
-                        <a className="flex flex-col md:flex-row gap-2 justify-between items-center">
-                          <Image
-                            loader={myLoader}
-                            src={vehicle.image}
-                            alt="Vehicle Image"
-                            width={250}
-                            height={250}
-                            unoptimized
-                          />
-                          <div className="flex flex-col items-center md:items-end justify-center">
-                            <h2 className="text-xl font-extrabold tracking-widest">
-                              {vehicle.model_year} {vehicle.make}{" "}
-                            </h2>
-                            <h3 className="text-lg font-extrabold tracking-widest">
-                              {vehicle.model} {vehicle.trim}
-                            </h3>
-                            <p className="text-base font-light tracking-widest flex flex-col md:flex-row items-center justify-center text-center">
-                              <span className="text-[#FF6A3D]">
-                                Monthly Fee:
-                              </span>{" "}
-                              <b className="text-sm font-extrabold">
-                                $
-                                {vehicle.product_financials[0].monthly_payment_cents.toLocaleString()}
-                              </b>
-                            </p>
-                            <p className="text-base font-light tracking-widest flex flex-col md:flex-row justify-center text-center">
-                              <span className="text-[#FF6A3D]">Start Fee:</span>{" "}
-                              <b className="text-sm font-extrabold">
-                                $
-                                {vehicle.product_financials[0].start_fee_cents.toLocaleString()}
-                              </b>
-                            </p>
+                        <input
+                          id={`body_style_${index}`}
+                          name="body_type"
+                          type="radio"
+                          value={item}
+                          onChange={(e) => handleChange(e, "body_style", index)}
+                          className="w-4 h-4 text-blue-600 bg-gray-100 border-gray-300 rounded"
+                        />
+                        <label
+                          htmlFor={`body_style_${index}`}
+                          className="w-full ml-2 text-sm font-medium text-gray-900 rounded"
+                        >
+                          {item}
+                        </label>
+                      </div>
+                    ))}
+                    <button
+                      className="mt-8 relative inline-block text-xs font-medium text-[#1A2238] group active:text-orange-500 focus:outline-none focus:ring"
+                      onClick={(e) => handleClearRadioOptions()}
+                    >
+                      <span className="absolute inset-0 transition-transform translate-x-0.5 translate-y-0.5 bg-[#FF6A3D] group-hover:translate-y-0 group-hover:translate-x-0"></span>
 
-                            <button className="mt-5 relative inline-block text-sm font-medium text-[#1A2238] group active:text-orange-500 focus:outline-none focus:ring">
-                              <span className="absolute inset-0 transition-transform translate-x-0.5 translate-y-0.5 bg-[#FF6A3D] group-hover:translate-y-0 group-hover:translate-x-0"></span>
+                      <span className="relative block px-8 py-3 bg-[#FFFFFF] border border-current">
+                        Clear
+                      </span>
+                    </button>
+                  </div>
+                  <hr />
+                </div>
+              </aside>
+              <main className="main -ml-48 flex flex-grow flex-col pl-4 transition-all duration-150 ease-in md:ml-0">
+                <div className="flex h-full items-start justify-center bg-white text-center text-5xl font-bold shadow-md rounded-lg">
+                  <ul className="flex flex-col gap-4 p-4 w-full">
+                    {vehiclesCopy.map((vehicle: Vehicle) => (
+                      <li
+                        key={vehicle.id}
+                        className="bg-white rounded-lg p-4 shadow-md border"
+                      >
+                        <Link
+                          href={`/vehicle/${encodeURIComponent(vehicle.id)}`}
+                          legacyBehavior
+                        >
+                          <a className="flex flex-col md:flex-row gap-2 justify-between items-center">
+                            <Image
+                              loader={myLoader}
+                              src={vehicle.image}
+                              alt="Vehicle Image"
+                              width={250}
+                              height={250}
+                              unoptimized
+                            />
+                            <div className="flex flex-col items-center md:items-end justify-center">
+                              <h2 className="text-xl font-extrabold tracking-widest">
+                                {vehicle.model_year} {vehicle.make}{" "}
+                              </h2>
+                              <h3 className="text-lg font-extrabold tracking-widest">
+                                {vehicle.model} {vehicle.trim}
+                              </h3>
+                              <p className="text-base font-light tracking-widest flex flex-col md:flex-row items-center justify-center text-center">
+                                <span className="text-[#FF6A3D]">
+                                  Monthly Fee:
+                                </span>{" "}
+                                <b className="text-sm font-extrabold">
+                                  $
+                                  {vehicle.product_financials[0].monthly_payment_cents.toLocaleString()}
+                                </b>
+                              </p>
+                              <p className="text-base font-light tracking-widest flex flex-col md:flex-row justify-center text-center">
+                                <span className="text-[#FF6A3D]">
+                                  Start Fee:
+                                </span>{" "}
+                                <b className="text-sm font-extrabold">
+                                  $
+                                  {vehicle.product_financials[0].start_fee_cents.toLocaleString()}
+                                </b>
+                              </p>
 
-                              <span className="relative block px-8 py-3 bg-[#FFFFFF] border border-current">
-                                View Details
-                              </span>
-                            </button>
-                          </div>
-                        </a>
-                      </Link>
-                    </li>
-                  ))}
-                </ul>
-              </div>
-            </main>
+                              <button className="mt-5 relative inline-block text-sm font-medium text-[#1A2238] group active:text-orange-500 focus:outline-none focus:ring">
+                                <span className="absolute inset-0 transition-transform translate-x-0.5 translate-y-0.5 bg-[#FF6A3D] group-hover:translate-y-0 group-hover:translate-x-0"></span>
+
+                                <span className="relative block px-8 py-3 bg-[#FFFFFF] border border-current">
+                                  View Details
+                                </span>
+                              </button>
+                            </div>
+                          </a>
+                        </Link>
+                      </li>
+                    ))}
+                  </ul>
+                </div>
+              </main>
+            </div>
           </div>
-        </div>
+          <Analytics />
+        </>
       )}
-      <Analytics />
     </>
   );
 }
