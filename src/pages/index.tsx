@@ -36,9 +36,9 @@ export default function Home() {
     const response = await API.vehicles.findAll().then(function (results) {
       setVehicles(results.data.data.vehicles);
       setVehiclesCopy(vehicles);
-      console.log("vehicles...", vehicles);
+      console.log("vehicles...s", vehicles);
       if (vehicles[0]) {
-        let body_style_temp: string[] = [];
+        let body_style_temp: any[] = [];
         vehicles.forEach((vehicle: Vehicle) => {
           Object.entries(vehicle).forEach(([key, value]) => {
             if (key == "body_style") {
@@ -72,6 +72,7 @@ export default function Home() {
         body_style_temp = body_style_temp.filter(
           (item, index) => body_style_temp.indexOf(item) === index
         );
+        console.log("body_style_temp...", body_style_temp);
         // let categories_temp = categories.filter(
         //   (item, index) => categories.indexOf(item) === index
         // );
