@@ -2,6 +2,7 @@ import Head from "next/head";
 import Image from "next/image";
 import { Inter } from "next/font/google";
 import styles from "@/styles/Home.module.scss";
+import { Analytics } from "@vercel/analytics/react";
 
 import API from "@/lib/api";
 import { useEffect, useState } from "react";
@@ -254,6 +255,7 @@ export default function Home() {
           </div>
         </div>
       )}
+      <Analytics />
     </>
   );
 }
